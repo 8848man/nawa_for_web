@@ -4,6 +4,7 @@
 import 'dart:collection';
 import 'package:nawa_for_web/main.dart';
 import 'package:nawa_for_web/pages/quizs_sub_page/all_potion_getted.dart';
+import 'package:nawa_for_web/pages/quizs_sub_page/wrong_answer.dart';
 import 'package:nawa_for_web/pages/solve_quizs/fourth_page.dart';
 import 'package:nawa_for_web/pages/solve_quizs/second_page.dart';
 import 'package:nawa_for_web/pages/solve_quizs/third_page.dart';
@@ -22,7 +23,7 @@ class _FirstQuizState extends State<FirstQuiz> {
   TextEditingController createTextController = TextEditingController();
   Function eq = const ListEquality().equals;
   List<String> answer = ['0', '0', '0', '0'];
-  List<String> answer1 = ['1', '3', '2', '4'];
+  List<String> answer1 = ['3', '4', '1', '5'];
   String event_flag = '0';
   //이후 앱 확장시 필요한 변수 코드
   // List<String> navigatorIcon = [];
@@ -57,7 +58,7 @@ class _FirstQuizState extends State<FirstQuiz> {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Navigator.of(context).pop('/WinThisGame');
+                      Navigator.of(context).pop('/WinThisGame');
                       print(tempcontext);
                     },
                     child: Text("네!"),
@@ -71,6 +72,8 @@ class _FirstQuizState extends State<FirstQuiz> {
         }
 
         _modalRouterToWrong(BuildContext context) async {
+          String tokenToWin = '0';
+          String tokenToWrong = '0';
           String routeName = await showDialog(
             context: context,
             builder: (context) {
@@ -91,6 +94,7 @@ class _FirstQuizState extends State<FirstQuiz> {
                         tokenService.updateTestToken('2', 0);
                       } else {
                         tokenService.updateTestToken('1', 0);
+                        tokenToWrong = '1';
                         Navigator.of(context).pop('/WrongAnswer');
                       }
                       // 포션이 하나라도 부족할 경우 retrun
@@ -108,7 +112,16 @@ class _FirstQuizState extends State<FirstQuiz> {
               );
             },
           );
-          Navigator.of(context).pushNamed(routeName);
+          // Navigator.of(context).pushNamed(routeName);
+          print(tokenToWrong);
+          if (tokenToWrong == '1') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => WrongAnswer(),
+              ),
+            );
+          }
         }
 
         _iconButtonCreater(BuildContext context, int answerIndex,
@@ -200,7 +213,10 @@ class _FirstQuizState extends State<FirstQuiz> {
                     style: TextStyle(
                       fontSize: 18.0,
                       color: Colors.white,
+                      letterSpacing: 5.0,
                       fontWeight: FontWeight.w700,
+                      height: 1.5,
+                      fontFamily: 'Jua',
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -228,7 +244,7 @@ class _FirstQuizState extends State<FirstQuiz> {
                                       content: Container(
                                         height:
                                             MediaQuery.of(context).size.height *
-                                                0.25,
+                                                0.35,
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -253,6 +269,16 @@ class _FirstQuizState extends State<FirstQuiz> {
                                                     '4', 'assets/wizard1.png'),
                                               ],
                                             ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                _iconButtonCreater(context, 0,
+                                                    '5', 'assets/wizard1.png'),
+                                                _iconButtonCreater(context, 0,
+                                                    '6', 'assets/wizard1.png'),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -264,14 +290,16 @@ class _FirstQuizState extends State<FirstQuiz> {
                                 alignment: Alignment.center,
                                 children: [
                                   Image.asset('assets/suncard_blue.png'),
-                                  Text(
-                                    answer[0],
-                                    style: TextStyle(
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.15,
+                                  if (answer[0] != '0') ...[
+                                    Text(
+                                      answer[0],
+                                      style: TextStyle(
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.15,
+                                      ),
                                     ),
-                                  ),
+                                  ]
                                 ],
                               ),
                             ),
@@ -287,7 +315,7 @@ class _FirstQuizState extends State<FirstQuiz> {
                                       content: Container(
                                         height:
                                             MediaQuery.of(context).size.height *
-                                                0.25,
+                                                0.35,
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -312,6 +340,16 @@ class _FirstQuizState extends State<FirstQuiz> {
                                                     '4', 'assets/wizard2.png'),
                                               ],
                                             ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                _iconButtonCreater(context, 1,
+                                                    '5', 'assets/wizard2.png'),
+                                                _iconButtonCreater(context, 1,
+                                                    '6', 'assets/wizard2.png'),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -323,14 +361,16 @@ class _FirstQuizState extends State<FirstQuiz> {
                                 alignment: Alignment.center,
                                 children: [
                                   Image.asset('assets/suncard_gray.png'),
-                                  Text(
-                                    answer[1],
-                                    style: TextStyle(
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.15,
+                                  if (answer[1] != '0') ...[
+                                    Text(
+                                      answer[1],
+                                      style: TextStyle(
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.15,
+                                      ),
                                     ),
-                                  ),
+                                  ]
                                 ],
                               ),
                             ),
@@ -355,7 +395,7 @@ class _FirstQuizState extends State<FirstQuiz> {
                                             height: MediaQuery.of(context)
                                                     .size
                                                     .height *
-                                                0.25,
+                                                0.35,
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -392,6 +432,22 @@ class _FirstQuizState extends State<FirstQuiz> {
                                                         'assets/wizard3.png'),
                                                   ],
                                                 ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    _iconButtonCreater(
+                                                        context,
+                                                        2,
+                                                        '5',
+                                                        'assets/wizard3.png'),
+                                                    _iconButtonCreater(
+                                                        context,
+                                                        2,
+                                                        '6',
+                                                        'assets/wizard3.png'),
+                                                  ],
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -403,15 +459,17 @@ class _FirstQuizState extends State<FirstQuiz> {
                                     alignment: Alignment.center,
                                     children: [
                                       Image.asset('assets/suncard_green.png'),
-                                      Text(
-                                        answer[2],
-                                        style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.15,
+                                      if (answer[2] != '0') ...[
+                                        Text(
+                                          answer[2],
+                                          style: TextStyle(
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.15,
+                                          ),
                                         ),
-                                      ),
+                                      ]
                                     ],
                                   ),
                                 ),
@@ -429,7 +487,7 @@ class _FirstQuizState extends State<FirstQuiz> {
                                       content: Container(
                                         height:
                                             MediaQuery.of(context).size.height *
-                                                0.25,
+                                                0.35,
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -454,6 +512,16 @@ class _FirstQuizState extends State<FirstQuiz> {
                                                     '4', 'assets/wizard4.png'),
                                               ],
                                             ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                _iconButtonCreater(context, 3,
+                                                    '5', 'assets/wizard4.png'),
+                                                _iconButtonCreater(context, 3,
+                                                    '6', 'assets/wizard4.png'),
+                                              ],
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -465,14 +533,16 @@ class _FirstQuizState extends State<FirstQuiz> {
                                 alignment: Alignment.center,
                                 children: [
                                   Image.asset('assets/suncard_purple.png'),
-                                  Text(
-                                    answer[3],
-                                    style: TextStyle(
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.15,
+                                  if (answer[3] != '0') ...[
+                                    Text(
+                                      answer[3],
+                                      style: TextStyle(
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.15,
+                                      ),
                                     ),
-                                  ),
+                                  ]
                                 ],
                               ),
                             ),

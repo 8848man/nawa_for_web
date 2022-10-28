@@ -16,7 +16,7 @@ class _SecondQuizState extends State<SecondQuiz> {
   TextEditingController createTextController = TextEditingController();
   Function eq = const ListEquality().equals;
   List<String> answer = ['0', '0', '0'];
-  List<String> answer1 = ['1', '3', '2'];
+  List<String> answer1 = ['1', '3', '5'];
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +183,10 @@ class _SecondQuizState extends State<SecondQuiz> {
                       style: TextStyle(
                         fontSize: 18.0,
                         color: Colors.white,
+                        letterSpacing: 5.0,
                         fontWeight: FontWeight.w700,
+                        height: 1.5,
+                        fontFamily: 'Jua',
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -213,7 +216,7 @@ class _SecondQuizState extends State<SecondQuiz> {
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
-                                              0.25,
+                                              0.35,
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -238,6 +241,16 @@ class _SecondQuizState extends State<SecondQuiz> {
                                                       '4', 'assets/witch1.png'),
                                                 ],
                                               ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  _iconButtonCreater(context, 0,
+                                                      '5', 'assets/witch1.png'),
+                                                  _iconButtonCreater(context, 0,
+                                                      '6', 'assets/witch1.png'),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -249,14 +262,17 @@ class _SecondQuizState extends State<SecondQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/macaroon_green.png'),
-                                    Text(
-                                      answer[0],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
+                                    if (answer[0] != '0') ...[
+                                      Text(
+                                        answer[0],
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.15,
+                                        ),
                                       ),
-                                    ),
+                                    ]
                                   ],
                                 ),
                               ),
@@ -275,7 +291,7 @@ class _SecondQuizState extends State<SecondQuiz> {
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
-                                              0.25,
+                                              0.35,
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -300,6 +316,16 @@ class _SecondQuizState extends State<SecondQuiz> {
                                                       '4', 'assets/witch2.png'),
                                                 ],
                                               ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  _iconButtonCreater(context, 1,
+                                                      '5', 'assets/witch2.png'),
+                                                  _iconButtonCreater(context, 1,
+                                                      '6', 'assets/witch2.png'),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -311,14 +337,17 @@ class _SecondQuizState extends State<SecondQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/macaroon_purple.png'),
-                                    Text(
-                                      answer[1],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
+                                    if (answer[1] != '0') ...[
+                                      Text(
+                                        answer[1],
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.15,
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ],
                                 ),
                               ),
@@ -332,12 +361,12 @@ class _SecondQuizState extends State<SecondQuiz> {
                                     builder: (context) {
                                       createTextController.text = "";
                                       return AlertDialog(
-                                        title: Text("보라색 마카롱의 정답은 무엇일까요?"),
+                                        title: Text("파란색 마카롱의 정답은 무엇일까요?"),
                                         content: Container(
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
-                                              0.25,
+                                              0.35,
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -362,6 +391,16 @@ class _SecondQuizState extends State<SecondQuiz> {
                                                       '4', 'assets/witch3.png'),
                                                 ],
                                               ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  _iconButtonCreater(context, 2,
+                                                      '5', 'assets/witch3.png'),
+                                                  _iconButtonCreater(context, 2,
+                                                      '6', 'assets/witch3.png'),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -373,14 +412,17 @@ class _SecondQuizState extends State<SecondQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/macaroon_blue.png'),
-                                    Text(
-                                      answer[2],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
+                                    if (answer[2] != '0') ...[
+                                      Text(
+                                        answer[2],
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.15,
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ],
                                 ),
                               ),

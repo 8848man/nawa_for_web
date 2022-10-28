@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "254509162866",
+    "project_id": "nawa-730d1",
+    "storage_bucket": "nawa-730d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254509162866:android:73aae37a39e1022d7cbdeb",
+        "android_client_info": {
+          "package_name": "com.example.nawa_for_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254509162866-rmo0tgm0srr43755mad56jctek51ptqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRM7c3VcUWgHEDj7s1Dh5sEZMhTWEoQuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254509162866-rmo0tgm0srr43755mad56jctek51ptqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

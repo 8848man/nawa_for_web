@@ -1,3 +1,4 @@
+import 'package:nawa_for_web/pages/solve_quizs/first_page.dart';
 import 'package:flutter/material.dart';
 
 class WrongAnswer extends StatelessWidget {
@@ -13,7 +14,7 @@ class WrongAnswer extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Image.asset(
-                  'assets/answer_wrong.png',
+                  'assets/answer_wrong.jpg',
                   width: MediaQuery.of(context).size.width * 1,
                   height: MediaQuery.of(context).size.height * 1,
                 ),

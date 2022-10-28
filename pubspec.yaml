@@ -38,6 +38,8 @@ dependencies:
   table_calendar: ^3.0.7
   provider: ^6.0.3
   shared_preferences: ^2.0.15
+  firebase_core: ^2.1.0
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +67,13 @@ flutter:
   assets:
     - assets/
 
+  fonts:
+      - family: BlackAndWhite
+        fonts:
+          - asset: assets/fonts/BlackAndWhitePicture-Regular.ttf
+      - family: Jua
+        fonts:
+          - asset: assets/fonts/Jua-Regular.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

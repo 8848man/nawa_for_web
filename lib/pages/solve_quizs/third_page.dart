@@ -16,7 +16,7 @@ class _ThirdQuizState extends State<ThirdQuiz> {
   TextEditingController createTextController = TextEditingController();
   Function eq = const ListEquality().equals;
   List<String> answer = ['0', '0', '0'];
-  List<String> answer1 = ['1', '3', '2'];
+  List<String> answer1 = ['6', '2', '4'];
   @override
   Widget build(BuildContext context) {
     return Consumer<TokenService>(
@@ -108,6 +108,7 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                   insertAnswer,
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.width * 0.1,
+                    color: Color.fromRGBO(254, 235, 182, 1),
                   ),
                 ),
               ],
@@ -180,7 +181,10 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                       style: TextStyle(
                         fontSize: 18.0,
                         color: Colors.white,
+                        letterSpacing: 5.0,
                         fontWeight: FontWeight.w700,
+                        height: 1.5,
+                        fontFamily: 'Jua',
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -209,7 +213,7 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
-                                              0.25,
+                                              0.35,
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -246,6 +250,22 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                                       'assets/pumpkin_1.png'),
                                                 ],
                                               ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  _iconButtonCreater(
+                                                      context,
+                                                      0,
+                                                      '5',
+                                                      'assets/pumpkin_1.png'),
+                                                  _iconButtonCreater(
+                                                      context,
+                                                      0,
+                                                      '6',
+                                                      'assets/pumpkin_1.png'),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -257,13 +277,30 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/pumpkin.png'),
-                                    Text(
-                                      answer[0],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
-                                      ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "막내",
+                                          style: TextStyle(
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.03,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        if (answer[0] != '0') ...[
+                                          Text(
+                                            answer[0],
+                                            style: TextStyle(
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.11,
+                                            ),
+                                          ),
+                                        ],
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -283,7 +320,7 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
-                                              0.25,
+                                              0.35,
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -320,6 +357,22 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                                       'assets/pumpkin_2.png'),
                                                 ],
                                               ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  _iconButtonCreater(
+                                                      context,
+                                                      1,
+                                                      '5',
+                                                      'assets/pumpkin_2.png'),
+                                                  _iconButtonCreater(
+                                                      context,
+                                                      1,
+                                                      '6',
+                                                      'assets/pumpkin_2.png'),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -331,13 +384,30 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/pumpkin.png'),
-                                    Text(
-                                      answer[1],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
-                                      ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "둘째",
+                                          style: TextStyle(
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.035,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        if (answer[1] != '0') ...[
+                                          Text(
+                                            answer[1],
+                                            style: TextStyle(
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.15,
+                                            ),
+                                          ),
+                                        ],
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -353,11 +423,11 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                 builder: (context) {
                                   createTextController.text = "";
                                   return AlertDialog(
-                                    title: Text("둘째 펌킨의 정답은 무엇일까요?"),
+                                    title: Text("큰 형 펌킨의 정답은 무엇일까요?"),
                                     content: Container(
                                       height:
                                           MediaQuery.of(context).size.height *
-                                              0.25,
+                                              0.35,
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
@@ -382,6 +452,16 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                                                   '4', 'assets/pumpkin_3.png'),
                                             ],
                                           ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              _iconButtonCreater(context, 2,
+                                                  '5', 'assets/pumpkin_3.png'),
+                                              _iconButtonCreater(context, 2,
+                                                  '6', 'assets/pumpkin_3.png'),
+                                            ],
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -393,13 +473,29 @@ class _ThirdQuizState extends State<ThirdQuiz> {
                               alignment: Alignment.center,
                               children: [
                                 Image.asset('assets/pumpkin.png'),
-                                Text(
-                                  answer[2],
-                                  style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.15,
-                                  ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "큰 형",
+                                      style: TextStyle(
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.035,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    if (answer[2] != '0') ...[
+                                      Text(
+                                        answer[2],
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.2,
+                                        ),
+                                      ),
+                                    ],
+                                  ],
                                 ),
                               ],
                             ),

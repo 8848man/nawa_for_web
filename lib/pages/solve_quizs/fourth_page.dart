@@ -16,14 +16,13 @@ class _FourthQuizState extends State<FourthQuiz> {
   TextEditingController createTextController = TextEditingController();
   Function eq = const ListEquality().equals;
   List<String> answer = ['2', '0', '0', '0'];
-  List<String> answer1 = ['2', '3', '1', '4'];
+  List<String> answer1 = ['2', '4', '3', '1'];
 
   @override
   Widget build(BuildContext context) {
     return Consumer<TokenService>(
       builder: (context, tokenService, child) {
         List<String> testTokenList = tokenService.testTokenList;
-        print(testTokenList);
         _modalRouterToRight(BuildContext context) async {
           String routeName = await showDialog(
             context: context,
@@ -183,6 +182,9 @@ class _FourthQuizState extends State<FourthQuiz> {
                         fontSize: 18.0,
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
+                        letterSpacing: 5.0,
+                        height: 1.5,
+                        fontFamily: 'Jua',
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -213,25 +215,16 @@ class _FourthQuizState extends State<FourthQuiz> {
                                     builder: (context) {
                                       createTextController.text = "";
                                       return AlertDialog(
-                                        title: Text("첫 번째 아지트의 색깔은 보라색(2)입니다!"),
+                                        //타이틀 중앙 배치
+                                        title: Text(
+                                          "첫 번째 아지트의 색깔은\n 보라색(2)입니다!",
+                                          textAlign: TextAlign.center,
+                                        ),
                                       );
                                     },
                                   );
                                 },
-                                icon: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Image.asset('assets/card.png'),
-                                    Text(
-                                      "2",
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                icon: Image.asset('assets/card_2.png'),
                               ),
                             ],
                           ),
@@ -307,14 +300,26 @@ class _FourthQuizState extends State<FourthQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/card.png'),
-                                    Text(
-                                      answer[1],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
+                                    if (answer[1] != '0') ...[
+                                      Text(
+                                        answer[1],
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.080,
+                                          color:
+                                              Color.fromRGBO(163, 140, 67, 1),
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 10.0,
+                                              color: Colors.black,
+                                              offset: Offset(5.0, 5.0),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ],
                                 ),
                               ),
@@ -392,14 +397,26 @@ class _FourthQuizState extends State<FourthQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/card.png'),
-                                    Text(
-                                      answer[2],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
+                                    if (answer[2] != '0') ...[
+                                      Text(
+                                        answer[2],
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.080,
+                                          color:
+                                              Color.fromRGBO(163, 140, 67, 1),
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 10.0,
+                                              color: Colors.black,
+                                              offset: Offset(5.0, 5.0),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ],
                                 ),
                               ),
@@ -477,14 +494,26 @@ class _FourthQuizState extends State<FourthQuiz> {
                                   alignment: Alignment.center,
                                   children: [
                                     Image.asset('assets/card.png'),
-                                    Text(
-                                      answer[3],
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
+                                    if (answer[3] != '0') ...[
+                                      Text(
+                                        answer[3],
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.080,
+                                          color:
+                                              Color.fromRGBO(163, 140, 67, 1),
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 10.0,
+                                              color: Colors.black,
+                                              offset: Offset(5.0, 5.0),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ],
                                 ),
                               ),
