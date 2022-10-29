@@ -29,6 +29,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
+
   <title>nawa_for_web</title>
   <link rel="manifest" href="manifest.json">
 
@@ -40,6 +41,10 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <!-- <iframe src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" allow="autoplay" id="audio" style="display:none"></iframe>   -->
+  <audio autoplay loop id="bgmAudio">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3" />
+  </audio>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

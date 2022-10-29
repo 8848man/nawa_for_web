@@ -1,6 +1,7 @@
 // Copyright 2019 Aleksander Woźniak
 // SPDX-License-Identifier: Apache-2.0
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:nawa_for_web/pages/quizs_sub_page/notify_page.dart';
 import 'package:nawa_for_web/pages/quizs_sub_page/quiz_integ_page.dart';
 import 'package:nawa_for_web/service/token_service.dart';
@@ -31,7 +32,21 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final player = AudioPlayer();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    player.play(DeviceFileSource('assets/sounds/halloween.mp3'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -18,7 +18,7 @@ class _WinThisGameState extends State<WinThisGame> {
       body: GestureDetector(
         child: Stack(
           children: [
-            Center(
+              Center(
               child: Image.asset(
                 'assets/mix_potion.jpg',
                 width: MediaQuery.of(context).size.width * 1,
