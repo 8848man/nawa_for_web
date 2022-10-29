@@ -15,6 +15,8 @@ import 'pages/quizs_sub_page/wrong_answer.dart';
 import 'pages/solve_quizs/first_page.dart';
 import 'pages/create_quizs/select_quiz_form.dart';
 
+final _player = AudioPlayer();
+
 void main() async {
   // main() 함수에서 async를 쓰려면 필요
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,15 +40,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final player = AudioPlayer();
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    player.play(DeviceFileSource('assets/sounds/halloween.mp3'));
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -101,10 +94,14 @@ class _StartPageState extends State<StartPage> {
                           height: MediaQuery.of(context).size.height * 0.53),
                       IconButton(
                         iconSize: MediaQuery.of(context).size.width * 0.33,
-                        onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (_) => NotifyPage()),
-                        ),
+                        onPressed: () {
+                          _player.play(UrlSource(
+                              'https://firebasestorage.googleapis.com/v0/b/nawa-730d1.appspot.com/o/halloween.mp3?alt=media&token=822e6706-ec71-4976-b86a-94715caf5398'));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => NotifyPage()),
+                          );
+                        },
                         icon: Image.asset(
                           'assets/start_button.png',
                         ),
